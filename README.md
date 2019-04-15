@@ -16,17 +16,17 @@ AutoItX4Java uses [JACOB](http://sourceforge.net/projects/jacob-project/) to acc
         System.setProperty(LibraryLoader.JACOB_DLL_PATH, file.getAbsolutePath());
 
         AutoItX x = new AutoItX();
-        String notepad = "Untitled - Notepad";
-        String testString = "this is a test.";
-        x.run("notepad.exe");
-        x.winActivate(notepad);
-        x.winWaitActive(notepad);
-        x.send(testString);
-        Assert.assertTrue(x.winExists(notepad, testString));
-        x.winClose(notepad, testString);
-        x.winWaitActive("Notepad");
-        x.send("{ALT}n");
-        Assert.assertFalse(x.winExists(notepad, testString));
+    String notepad = "无标题 - 记事本";
+    String testString = "this is a test.";
+    x.run("notepad.exe","",AutoItX.SW_SHOW);
+    x.winActivate(notepad);
+    x.winWaitActive(notepad);
+    x.send(testString);
+//    Assert.assertTrue(x.winExists(notepad, testString));
+    x.winClose(notepad, testString);
+    x.winWaitActive("记事本");
+    x.send("{ALT}n");
+//    Assert.assertFalse(x.winExists(notepad, testString));
 ```
 
 ####Troubleshooting
