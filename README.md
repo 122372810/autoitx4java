@@ -14,7 +14,9 @@ AutoItX4Java uses [JACOB](http://sourceforge.net/projects/jacob-project/) to acc
 ```
         File file = new File("lib", "jacob-1.15-M4-x64.dll"); //path to the jacob dll
         System.setProperty(LibraryLoader.JACOB_DLL_PATH, file.getAbsolutePath());
-
+/**
+添加记事本
+*/
         AutoItX x = new AutoItX();
     String notepad = "无标题 - 记事本";
     String testString = "this is a test.";
@@ -27,6 +29,27 @@ AutoItX4Java uses [JACOB](http://sourceforge.net/projects/jacob-project/) to acc
     x.winWaitActive("记事本");
     x.send("{ALT}n");
 //    Assert.assertFalse(x.winExists(notepad, testString));
+
+/**
+ * 	上传文件
+ */
+
+	File file = new File("lib","jacob-1.19-x64.dll");
+	System.setProperty(LibraryLoader.JACOB_DLL_PATH, file.getAbsolutePath());
+	
+    AutoItX x = new AutoItX();
+
+    x.winActivate("打开");//打开代表程序title
+    x.winWaitActive("打开");
+    x.controlSend("打开", "", "Edit1", "D:\\Desktop\\timg.jpg");//Edit1代表ClassnameNN
+    try {
+		Thread.sleep(3000);
+	} catch (InterruptedException e1) {
+		// TODO 自动生成的 catch 块
+		e1.printStackTrace();
+	}
+    x.controlClick("打开", "", "1");
+
 ```
 
 ####Troubleshooting
